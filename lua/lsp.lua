@@ -2,23 +2,18 @@ local lspconfig = require('lspconfig')
 
 -- Enable language servers
 
-local servers = { 
-  rust_analyzer = {
-    settings = {
-      ["rust-analyzer"] = {
-        checkOnSave = {
-          command = "clippy",
-        }
+lspconfig.rust_analyzer.setup {
+  -- Server-specific settings. See `:help lspconfig-setup`
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        command = "clippy",
       }
     }
-  }
+  },
 }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  }
-end
+
+lspconfig.pyright.setup{}
 
 -- luasnip setup
 local luasnip = require 'luasnip'

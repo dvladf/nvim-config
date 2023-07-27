@@ -1,5 +1,7 @@
 set number
 
+set clipboard+=unnamedplus
+
 set termguicolors
 set background=dark
 colorscheme everforest

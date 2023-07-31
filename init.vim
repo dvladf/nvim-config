@@ -14,3 +14,5 @@ lua require('treesitter')
 " insert new line in normal mode
 map <Enter> o<ESC>
 map <A-Enter> O<ESC>
+
+nnoremap <leader>xx <cmd>TroubleToggle<cr>

@@ -21,7 +21,6 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip'         -- Snippets plugin
 
-  use 'numToStr/FTerm.nvim'      -- floating terminal
   use 'sainnhe/everforest'       -- color scheme
   
   use {'kevinhwang91/nvim-bqf'}
@@ -31,7 +30,9 @@ return require('packer').startup(function(use)
   use {'nvim-tree/nvim-web-devicons'}
   use {'folke/trouble.nvim'}
 
-  use {'junegunn/fzf.vim'}
+  use {'nvim-lua/plenary.nvim'}
+  use {'nvim-telescope/telescope.nvim', tag = '0.1.3'}
+
   if packer_bootstrap then
     require('packer').sync()
   end

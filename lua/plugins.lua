@@ -33,6 +33,8 @@ return require('packer').startup(function(use)
   use {'nvim-lua/plenary.nvim'}
   use {'nvim-telescope/telescope.nvim', tag = '0.1.3'}
 
+  use {'f-person/git-blame.nvim'}
+
   if packer_bootstrap then
     require('packer').sync()
   end

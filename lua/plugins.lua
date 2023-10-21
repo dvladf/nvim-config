@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'         -- Snippets plugin
 
   use 'sainnhe/everforest'       -- color scheme
-  
+
   use {'kevinhwang91/nvim-bqf'}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'wsdjeg/vim-fetch'}
@@ -33,7 +33,8 @@ return require('packer').startup(function(use)
   use {'nvim-lua/plenary.nvim'}
   use {'nvim-telescope/telescope.nvim', tag = '0.1.3'}
 
-  use {'f-person/git-blame.nvim'}
+  use {'tpope/vim-fugitive'}             -- Git plugin
+  use {'ntpeters/vim-better-whitespace'} -- Show trailing whitespace
 
   if packer_bootstrap then
     require('packer').sync()

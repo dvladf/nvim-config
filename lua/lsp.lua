@@ -17,6 +17,8 @@ lspconfig.pyright.setup{}
 
 lspconfig.clangd.setup{}
 
+lspconfig.ocamllsp.setup{}
+
 -- luasnip setup
 local luasnip = require 'luasnip'
 

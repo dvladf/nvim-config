@@ -5,6 +5,7 @@ set clipboard+=unnamedplus
 set termguicolors
 set background=dark
 colorscheme everforest
+" colorscheme gruvbox-material
 
 lua require('plugins')
 lua require('lsp')
@@ -25,4 +26,4 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " Netrw file explorer settings
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:netrw_browse_split = 3
+" let g:netrw_browse_split = 3

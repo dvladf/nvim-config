@@ -1,3 +1,9 @@
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
+
 local lspconfig = require('lspconfig')
 
 -- Enable language servers
@@ -8,7 +14,12 @@ lspconfig.rust_analyzer.setup {
     ["rust-analyzer"] = {
       checkOnSave = {
         command = "clippy",
-      }
+      },
+      hints = {
+	type_hints = true,
+	parameter_hints = true,
+	chaining_hints = true
+      },
     }
   },
 }
@@ -18,6 +29,8 @@ lspconfig.pyright.setup{}
 lspconfig.clangd.setup{}
 
 lspconfig.ocamllsp.setup{}
+
+lspconfig.lua_ls.setup{}
 
 -- luasnip setup
 local luasnip = require 'luasnip'
@@ -68,9 +81,24 @@ lspconfig.rust_analyzer.setup{}
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+
   callback = function(ev)
+    vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+
+    --- toggle inlay hints
+    local function toggle_inlay_hints()
+      if vim.lsp.inlay_hint.is_enabled(opts.buffer) then
+        vim.lsp.inlay_hint.enable(opts.buffer, false)
+      else
+        vim.lsp.inlay_hint.enable(opts.buffer, true)
+      end
+    end
+
+    vim.keymap.set('n', '<leader>dh', toggle_inlay_hints, opts)
+
   end,
 })

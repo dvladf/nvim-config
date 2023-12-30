@@ -14,6 +14,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'   -- plugins manager
   use 'neovim/nvim-lspconfig'    -- configs collection for nvim lsp client
+  use 'folke/neodev.nvim'        -- Neovim setup for init.lua and plugin development
 
   -- autocompletion
   use 'hrsh7th/nvim-cmp'         -- Autocompletion plugin

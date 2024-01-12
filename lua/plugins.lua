@@ -38,6 +38,8 @@ return require('packer').startup(function(use)
   use {'tpope/vim-fugitive'}             -- Git plugin
   use {'ntpeters/vim-better-whitespace'} -- Show trailing whitespace
 
+  use {'nvim-tree/nvim-tree.lua'}
+
   if packer_bootstrap then
     require('packer').sync()
   end

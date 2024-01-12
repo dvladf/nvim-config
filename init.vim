@@ -1,3 +1,7 @@
+" disable netrw file explorer
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
 set number
 
 set clipboard+=unnamedplus
@@ -8,6 +12,7 @@ set background=dark
 colorscheme gruvbox-material
 
 lua require('plugins')
+lua require('init')
 lua require('lsp')
 lua require('treesitter')
 lua require('telescope_')
@@ -20,7 +25,3 @@ map <A-Enter> O<ESC>
 " nnoremap <leader>xx <cmd>TroubleToggle<cr>
 noremap <silent> <F2> <Cmd>set number <bar> setlocal relativenumber!<CR>
 
-" Netrw file explorer settings
-let g:netrw_banner = 1
-let g:netrw_liststyle = 3
-" let g:netrw_browse_split = 3

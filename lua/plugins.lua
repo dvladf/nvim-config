@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
 
   use 'sainnhe/everforest'       -- color scheme
   use 'sainnhe/gruvbox-material' -- another color scheme
+  use 'rebelot/kanagawa.nvim'
 
   use {'kevinhwang91/nvim-bqf'}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -37,6 +38,11 @@ return require('packer').startup(function(use)
 
   use {'tpope/vim-fugitive'}             -- Git plugin
   use {'ntpeters/vim-better-whitespace'} -- Show trailing whitespace
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 
   if packer_bootstrap then
     require('packer').sync()

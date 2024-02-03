@@ -1,6 +1,6 @@
-" disable netrw file explorer
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
+" Netrw file explorer settings
+let g:netrw_banner = 1
+let g:netrw_liststyle = 3
 
 set number
 
@@ -12,11 +12,9 @@ set background=dark
 colorscheme gruvbox-material
 
 lua require('plugins')
-lua require('init')
 lua require('lsp')
 lua require('treesitter')
 lua require('telescope_')
-" lua require('fterm')
 
 " insert new line in normal mode
 map <Enter> o<ESC>

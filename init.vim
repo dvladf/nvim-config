@@ -8,9 +8,8 @@ set clipboard+=unnamedplus
 
 set termguicolors
 set background=dark
-colorscheme kanagawa
 " colorscheme everforest
-" colorscheme gruvbox-material
+colorscheme gruvbox-material
 
 lua require('plugins')
 lua require('init')

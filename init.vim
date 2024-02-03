@@ -12,9 +12,7 @@ set background=dark
 colorscheme gruvbox-material
 
 lua require('plugins')
-lua require('lsp')
-lua require('treesitter')
-lua require('telescope_')
+lua require('init')
 
 " insert new line in normal mode
 map <Enter> o<ESC>

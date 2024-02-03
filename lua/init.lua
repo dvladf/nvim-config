@@ -1,13 +1,13 @@
+-- LSP config --
+
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
 require("neodev").setup({
   -- add any options here, or leave empty to use the default settings
 })
 
-
 local lspconfig = require('lspconfig')
 
 -- Enable language servers
-
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
@@ -23,13 +23,9 @@ lspconfig.rust_analyzer.setup {
     }
   },
 }
-
 lspconfig.pyright.setup{}
-
 lspconfig.clangd.setup{}
-
 lspconfig.ocamllsp.setup{}
-
 lspconfig.lua_ls.setup{}
 
 -- luasnip setup
@@ -102,3 +98,39 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
   end,
 })
+
+-- treesitter plugin
+
+require'nvim-treesitter.configs'.setup {
+  auto_install = true,
+
+  highlight = {
+    enable = true
+  }
+}
+
+-- telescope plugin
+
+local telescope_builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fr', telescope_builtin.lsp_references, {})
+vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics, {})
+vim.keymap.set('n', '<leader>fs', telescope_builtin.lsp_document_symbols, {})
+
+local telescope = require("telescope")
+local telescope_actions = require("telescope.actions")
+
+telescope.setup({
+    defaults = {
+        mappings = {
+	    i = {
+	        ["<C-j>"] = telescope_actions.cycle_history_next,
+		["<C-k>"] = telescope_actions.cycle_history_prev,
+	    }
+	}
+    }
+})
+

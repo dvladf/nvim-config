@@ -21,3 +21,9 @@ map <A-Enter> O<ESC>
 " nnoremap <leader>xx <cmd>TroubleToggle<cr>
 noremap <silent> <F2> <Cmd>set number <bar> setlocal relativenumber!<CR>
 
+
+" rainbow-delimiters colors
+highlight link RainbowDelimiterRed Keyword
+highlight link RainbowDelimiterBlue Identifier
+highlight link RainbowDelimiterOrange Operator
+

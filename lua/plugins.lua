@@ -45,6 +45,8 @@ return require('packer').startup(function(use)
 
   use {'SmiteshP/nvim-navic'} -- show current code context in a statusline or winbar
 
+  use {'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'} -- rainbow parentheses
+
   if packer_bootstrap then
     require('packer').sync()
   end

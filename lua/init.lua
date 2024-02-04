@@ -112,13 +112,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- treesitter plugin
 
-local treesitter_config = require('nvim-treesitter.configs')
-treesitter_config.setup {
+require('nvim-treesitter.configs').setup {
   auto_install = true,
   highlight = {
-    enable = true
-  }
+    enable = true,
+    additional_vim_regex_highlighting=false,
+  },
+  ident = { enable = true }
 }
+
+-- folding
+
+-- vim.opt.foldmethod     = 'expr'
+-- vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
+vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
+  group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
+  callback = function()
+    vim.opt.foldmethod     = 'expr'
+    vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
+    vim.opt.foldenable     = false
+    vim.opt.foldlevel      = 99
+  end
+})
 
 -- telescope plugin
 

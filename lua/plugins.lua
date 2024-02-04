@@ -43,6 +43,8 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
+  use {'SmiteshP/nvim-navic'} -- show current code context in a statusline or winbar
+
   if packer_bootstrap then
     require('packer').sync()
   end

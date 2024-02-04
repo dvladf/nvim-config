@@ -75,6 +75,8 @@ cmp.setup {
 
 lspconfig.rust_analyzer.setup{}
 
+local navic = require("nvim-navic")
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
 
@@ -95,6 +97,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     vim.keymap.set('n', '<leader>dh', toggle_inlay_hints, opts)
+
+   -- enable navic
+   local client = vim.lsp.get_client_by_id(ev.data.client_id)
+   if client == nil then
+     return
+   end
+   if client.server_capabilities.documentSymbolProvider then
+     navic.attach(client, opts.buffer)
+   end
 
   end,
 })
@@ -134,6 +145,8 @@ telescope.setup({
     }
 })
 
+-- lualine
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -156,7 +169,7 @@ require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
+    lualine_c = {'filename',  'navic'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}

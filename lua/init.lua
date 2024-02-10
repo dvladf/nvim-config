@@ -98,15 +98,30 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     vim.keymap.set('n', '<leader>dh', toggle_inlay_hints, opts)
 
-   -- enable navic
-   local client = vim.lsp.get_client_by_id(ev.data.client_id)
-   if client == nil then
-     return
-   end
-   if client.server_capabilities.documentSymbolProvider then
-     navic.attach(client, opts.buffer)
-   end
+    -- enable navic
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client == nil then
+      return
+    end
+    if client.server_capabilities.documentSymbolProvider then
+      navic.attach(client, opts.buffer)
+    end
 
+    -- enable formatting
+    local function format_block()
+      vim.lsp.buf.format({
+        async = true,
+        range = {
+          ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+          ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+        }
+      })
+    end
+
+    vim.keymap.set('v', '<leader>qf', format_block, opts)
+    vim.keymap.set('n', '<leader>qf', function()
+      vim.lsp.buf.format({async = true})
+    end, opts)
   end,
 })
 

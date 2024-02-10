@@ -14,6 +14,8 @@ colorscheme gruvbox-material
 lua require('plugins')
 lua require('init')
 
+set laststatus=3
+
 " insert new line in normal mode
 map <Enter> o<ESC>
 map <A-Enter> O<ESC>

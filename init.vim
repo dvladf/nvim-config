@@ -1,6 +1,9 @@
 " Netrw file explorer settings
-let g:netrw_banner = 1
-let g:netrw_liststyle = 3
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
+"let g:netrw_banner = 1
+"let g:netrw_liststyle = 3
 
 set number
 
@@ -8,7 +11,7 @@ set clipboard+=unnamedplus
 
 set termguicolors
 set background=dark
-" colorscheme everforest
+"colorscheme everforest
 colorscheme gruvbox-material
 
 lua require('plugins')

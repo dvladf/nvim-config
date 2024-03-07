@@ -217,3 +217,15 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+-- nvim-tree
+require("nvim-tree").setup({
+  filters = { dotfiles = false, custom = { '^.git$' }},
+  view = {
+    width = 40,
+  },
+})
+
+vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>', {
+    noremap = true
+})

@@ -42,11 +42,13 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
-  use {'nvim-tree/nvim-tree.lua'}
 
   use {'SmiteshP/nvim-navic'} -- show current code context in a statusline or winbar
 
   use {'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'} -- rainbow parentheses
+
+  -- debugging
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
   if packer_bootstrap then
     require('packer').sync()

@@ -218,14 +218,35 @@ require('lualine').setup {
   extensions = {}
 }
 
--- nvim-tree
-require("nvim-tree").setup({
-  filters = { dotfiles = false, custom = { '^.git$' }},
-  view = {
-    width = 40,
-  },
-})
+-- debugging
+local dap = require("dap")
+local dapui = require("dapui")
+dapui.setup()
+vim.keymap.set('n', '<leader>d', dapui.toggle, {})
+vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, {})
 
-vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>', {
-    noremap = true
-})
+dap.adapters.gdb = {
+  type = "executable",
+  command = "gdb",
+  args = { "-i", "dap" }
+}
+
+dap.configurations.rust = {
+  {
+    name = "Launch",
+    type = "gdb",
+    request = "launch",
+    program = function()
+      --return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      local path = vim.fn.input({
+          prompt = 'Path to executable: ',
+          default = vim.fn.getcwd() .. '/',
+          completion = 'file',
+      })
+      return (path and path ~= '') and path or dap.ABORT
+    end,
+    --cwd = '',
+    stopAtBeginningOfMainSubprogram = false,
+  },
+}
+

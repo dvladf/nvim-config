@@ -1,9 +1,6 @@
 " Netrw file explorer settings
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-
-"let g:netrw_banner = 1
-"let g:netrw_liststyle = 3
+let g:netrw_banner = 1
+let g:netrw_liststyle = 3
 
 set number
 

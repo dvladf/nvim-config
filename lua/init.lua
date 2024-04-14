@@ -5,29 +5,6 @@ require("neodev").setup({
   -- add any options here, or leave empty to use the default settings
 })
 
-local lspconfig = require('lspconfig')
-
--- Enable language servers
-lspconfig.rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    ["rust-analyzer"] = {
-      checkOnSave = {
-        command = "clippy",
-      },
-      hints = {
-	type_hints = true,
-	parameter_hints = true,
-	chaining_hints = true
-      },
-    }
-  },
-}
-lspconfig.pyright.setup{}
-lspconfig.clangd.setup{}
-lspconfig.ocamllsp.setup{}
-lspconfig.lua_ls.setup{}
-
 -- luasnip setup
 local luasnip = require 'luasnip'
 
@@ -73,7 +50,31 @@ cmp.setup {
   },
 }
 
-lspconfig.rust_analyzer.setup{}
+local lspconfig = require('lspconfig')
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
+
+-- Enable language servers
+lspconfig.rust_analyzer.setup {
+  capabilities = cmp_nvim_lsp.default_capabilities(),
+  -- Server-specific settings. See `:help lspconfig-setup`
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        command = "clippy",
+      },
+      hints = {
+	type_hints = true,
+	parameter_hints = true,
+	chaining_hints = true
+      },
+    }
+  },
+}
+lspconfig.pyright.setup{}
+lspconfig.clangd.setup{}
+lspconfig.ocamllsp.setup{}
+lspconfig.lua_ls.setup{}
+
 
 local navic = require("nvim-navic")
 

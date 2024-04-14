@@ -48,7 +48,7 @@ return require('packer').startup(function(use)
   use {'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'} -- rainbow parentheses
 
   -- debugging
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
 
   if packer_bootstrap then
     require('packer').sync()

@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
 
   use 'sainnhe/everforest'       -- color scheme
   use 'sainnhe/gruvbox-material' -- another color scheme
+  use 'rebelot/kanagawa.nvim'    -- another color scheme
 
   use {'kevinhwang91/nvim-bqf'}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}

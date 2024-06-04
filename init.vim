@@ -23,6 +23,7 @@ map <A-Enter> O<ESC>
 
 " nnoremap <leader>xx <cmd>TroubleToggle<cr>
 noremap <silent> <F2> <Cmd>set number <bar> setlocal relativenumber!<CR>
+tnoremap <Esc> <C-\><C-n>
 
 
 " rainbow-delimiters colors

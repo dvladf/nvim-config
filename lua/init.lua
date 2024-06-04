@@ -74,6 +74,7 @@ lspconfig.pyright.setup{}
 lspconfig.clangd.setup{}
 lspconfig.ocamllsp.setup{}
 lspconfig.lua_ls.setup{}
+lspconfig.zls.setup{}
 
 
 local navic = require("nvim-navic")
@@ -217,37 +218,5 @@ require('lualine').setup {
   winbar = {},
   inactive_winbar = {},
   extensions = {}
-}
-
--- debugging
-local dap = require("dap")
-local dapui = require("dapui")
-dapui.setup()
-vim.keymap.set('n', '<leader>d', dapui.toggle, {})
-vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, {})
-
-dap.adapters.gdb = {
-  type = "executable",
-  command = "gdb",
-  args = { "-i", "dap" }
-}
-
-dap.configurations.rust = {
-  {
-    name = "Launch",
-    type = "gdb",
-    request = "launch",
-    program = function()
-      --return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-      local path = vim.fn.input({
-          prompt = 'Path to executable: ',
-          default = vim.fn.getcwd() .. '/',
-          completion = 'file',
-      })
-      return (path and path ~= '') and path or dap.ABORT
-    end,
-    --cwd = '',
-    stopAtBeginningOfMainSubprogram = false,
-  },
 }
 

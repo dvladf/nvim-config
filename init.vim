@@ -31,3 +31,5 @@ highlight link RainbowDelimiterRed Keyword
 highlight link RainbowDelimiterBlue Identifier
 highlight link RainbowDelimiterOrange Operator
 
+" enable debugging
+packadd termdebug

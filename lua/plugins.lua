@@ -48,9 +48,6 @@ return require('packer').startup(function(use)
 
   use {'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'} -- rainbow parentheses
 
-  -- debugging
-  use {'sakhnik/nvim-gdb'}
-
   if packer_bootstrap then
     require('packer').sync()
   end

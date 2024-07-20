@@ -6,6 +6,8 @@ set number
 
 set clipboard+=unnamedplus
 
+"let g:gruvbox_material_background = 'hard'
+
 set termguicolors
 set background=dark
 "colorscheme everforest
@@ -33,3 +35,4 @@ highlight link RainbowDelimiterOrange Operator
 
 " enable debugging
 packadd termdebug
+let g:termdebug_wide=1

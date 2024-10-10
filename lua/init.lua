@@ -275,3 +275,6 @@ vim.keymap.set('n', '<leader>rs', '<cmd>IronRepl<cr>')
 vim.keymap.set('n', '<leader>rr', '<cmd>IronRestart<cr>')
 vim.keymap.set('n', '<leader>rf', '<cmd>IronFocus<cr>')
 vim.keymap.set('n', '<leader>rh', '<cmd>IronHide<cr>')
+
+-- autopairs
+require("nvim-autopairs").setup {}

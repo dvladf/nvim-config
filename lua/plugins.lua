@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
   use {'folke/trouble.nvim'}
 
   use {'nvim-lua/plenary.nvim'}
-  use {'nvim-telescope/telescope.nvim', tag = '0.1.3'}
+  use {'nvim-telescope/telescope.nvim', tag = '0.1.8'}
 
   use {'tpope/vim-fugitive'}             -- Git plugin
   use {'ntpeters/vim-better-whitespace'} -- Show trailing whitespace
@@ -47,8 +47,9 @@ return require('packer').startup(function(use)
   use {'SmiteshP/nvim-navic'} -- show current code context in a statusline or winbar
 
   use {'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'} -- rainbow parentheses
+  use {'windwp/nvim-autopairs'} -- for autopairs
 
-  use {'Vigemus/iron.nvim'}
+  use {'Vigemus/iron.nvim'} -- for REPL
 
   if packer_bootstrap then
     require('packer').sync()

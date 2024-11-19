@@ -75,6 +75,7 @@ lspconfig.clangd.setup{}
 lspconfig.ocamllsp.setup{}
 lspconfig.lua_ls.setup{}
 lspconfig.zls.setup{}
+lspconfig.gopls.setup{}
 
 
 local navic = require("nvim-navic")

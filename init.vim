@@ -14,6 +14,8 @@ set background=dark
 "colorscheme gruvbox-material
 colorscheme kanagawa
 
+set noet ci pi sts=0 sw=4 ts=4
+
 lua require('plugins')
 lua require('init')
 

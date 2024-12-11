@@ -49,7 +49,7 @@ return require('packer').startup(function(use)
   use {'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'} -- rainbow parentheses
   use {'windwp/nvim-autopairs'} -- for autopairs
 
-  use {'Vigemus/iron.nvim'} -- for REPL
+  use 'Olical/conjure' -- REPL (LISP, python)
 
   if packer_bootstrap then
     require('packer').sync()

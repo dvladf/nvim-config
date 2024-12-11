@@ -6,13 +6,13 @@ set number
 
 set clipboard+=unnamedplus
 
-"let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_background = 'hard'
 
 set termguicolors
 set background=dark
 "colorscheme everforest
-"colorscheme gruvbox-material
-colorscheme kanagawa
+colorscheme gruvbox-material
+"colorscheme kanagawa
 
 set noet ci pi sts=0 sw=4 ts=4
 

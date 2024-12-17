@@ -25,6 +25,11 @@ set laststatus=3
 map <Enter> o<ESC>
 map <A-Enter> O<ESC>
 
+" work with buffers
+map <leader>n :bnext<cr>
+map <leader>p :bprevious<cr>
+map <leader>d :bdelete<cr>
+
 " nnoremap <leader>xx <cmd>TroubleToggle<cr>
 noremap <silent> <F2> <Cmd>set number <bar> setlocal relativenumber!<CR>
 tnoremap <Esc> <C-\><C-n>

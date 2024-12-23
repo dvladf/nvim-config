@@ -72,6 +72,7 @@ lspconfig.rust_analyzer.setup {
 }
 lspconfig.pyright.setup{}
 lspconfig.clangd.setup{}
+lspconfig.lemminx.setup{}
 lspconfig.ocamllsp.setup{}
 lspconfig.lua_ls.setup{}
 lspconfig.zls.setup{}

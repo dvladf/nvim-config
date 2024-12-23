@@ -78,6 +78,8 @@ lspconfig.zls.setup{}
 lspconfig.gopls.setup{}
 lspconfig.racket_langserver.setup{}
 
+-- keymap lsp
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
 
 local navic = require("nvim-navic")
 

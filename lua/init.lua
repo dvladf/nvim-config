@@ -50,34 +50,50 @@ cmp.setup {
   },
 }
 
-local lspconfig = require('lspconfig')
+--local lspconfig = require('lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 -- Enable language servers
-lspconfig.rust_analyzer.setup {
-  capabilities = cmp_nvim_lsp.default_capabilities(),
-  -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    ["rust-analyzer"] = {
-      checkOnSave = {
-        command = "clippy",
-      },
-      hints = {
-	type_hints = true,
-	parameter_hints = true,
-	chaining_hints = true
-      },
-    }
-  },
+
+vim.lsp.config['clangd'] = {
+	cmd = { 'clangd'},
+	filetypes = { 'cpp', 'c', 'h', 'hpp' }
 }
-lspconfig.pyright.setup{}
-lspconfig.clangd.setup{}
-lspconfig.lemminx.setup{}
-lspconfig.ocamllsp.setup{}
-lspconfig.lua_ls.setup{}
-lspconfig.zls.setup{}
-lspconfig.gopls.setup{}
-lspconfig.racket_langserver.setup{}
+
+vim.lsp.config['rust_analyzer'] = {
+	capabilities = cmp_nvim_lsp.default_capabilities(),
+	cmd = { 'rust-analyzer' },
+	filetypes = { 'rust' },
+	root_markers = { 'Cargo.toml', '.git' }
+}
+
+vim.lsp.enable('clangd')
+vim.lsp.enable('rust_analyzer')
+
+--lspconfig.rust_analyzer.setup {
+--  capabilities = cmp_nvim_lsp.default_capabilities(),
+--  -- Server-specific settings. See `:help lspconfig-setup`
+--  settings = {
+--    ["rust-analyzer"] = {
+--      checkOnSave = {
+--        command = "clippy",
+--      },
+--      hints = {
+--	type_hints = true,
+--	parameter_hints = true,
+--	chaining_hints = true
+--      },
+--    }
+--  },
+--}
+--lspconfig.pyright.setup{}
+--lspconfig.clangd.setup{}
+--lspconfig.lemminx.setup{}
+--lspconfig.ocamllsp.setup{}
+--lspconfig.lua_ls.setup{}
+--lspconfig.zls.setup{}
+--lspconfig.gopls.setup{}
+--lspconfig.racket_langserver.setup{}
 
 -- keymap lsp
 vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
